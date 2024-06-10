@@ -1,0 +1,122 @@
+OOP concepts
+-----------------
+The main OOP concepts are as follows:-
+• Class: This defines the properties and behavior (methods) of objects that are created
+based on this class.
+• Object: This defines a state (data) as values of its properties, adds behavior
+(methods) taken from a class, and holds them together.
+• Inheritance: This propagates behavior down the chain of classes connected via
+parent-child relationships.
+• Abstraction/Interface: This describes how object data and behavior can be accessed. It isolates
+(abstracts) an object’s appearance from its implementations (behavior).
+• Encapsulation: This hides the state and details of the implementation.
+• Polymorphism: This allows an object to assume an appearance of implemented
+interfaces and behave like any of the ancestor classes.
+
+Inheritance
+-----------------
+Objects can establish a parent-child relationship and share properties and behavior this way.
+For example, we can create a Car class that inherits properties (weight, for example)
+and behavior (speed calculation) of the Vehicle class.
+In addition, the child class can have its own properties (the number of passengers, for
+example) and car-specific behavior (soft shock absorption, for example).
+But if we create a Truck class as the vehicle’s child,
+its additional truck-specific property (payload, for example) and behavior (hard shock absorption) will be different.
+
+It is said that each object of the Car or Truck class has a parent object of the Vehicle
+class. But objects of the Car and Truck class do not share the specific Vehicle object
+(every time a child object is created, a new parent object is created first).
+They share only the parent’s behavior.
+That is why all child objects can have the same behavior but different states.
+This is one way to achieve code reusability, but it may not be flexible enough when
+object behavior has to change dynamically.
+In such cases, object composition (bringing behavior from other classes) or functional programming is more appropriate.
+
+It is possible to make a child behave differently than the inherited behavior would do.
+To achieve it, the method that captures the behavior can be re-implemented in the child
+class. It is said that a child can override inherited behavior.
+
+
+Abstraction/interface
+------------------------
+It describes how the behavior of an object (of Car or Truck, in our example) can be
+accessed. Such a description together with a return type is presented as an interface.
+It does not say anything about the code that does calculations – only about the method
+name, the parameters’ types, their position in the parameter list, and the result type.
+All the implementation details are hidden (encapsulated) within the class that implements
+this interface.
+
+Abstraction/interface also reduces dependency between different sections of the code,
+thus increasing its maintainability. Each class can be changed without the need to
+coordinate it with its clients, as long as the interface stays the same.
+
+
+Encapsulation
+---------------
+Encapsulation is often defined either as data hiding or a bundle of publicly accessible
+methods and privately accessible data. In a broad sense, encapsulation is controlled access
+to an object’s properties.
+The snapshot of values of object properties is called an object state. This is data that is
+encapsulated. So, encapsulation addresses the main issue that motivated the creation of
+object-oriented programming – better management of concurrent access to shared data.
+[private field setter/getter]
+
+
+Polymorphism
+----------------
+Polymorphism is the ability of an object to behave as an object of a different class or as an
+implementation of a different interface. It owes its existence to all the concepts like
+– inheritance, interface, and encapsulation.
+Without them, polymorphism would not be possible.
+Inheritance allows an object to acquire or override the behaviors of all its ancestors.
+An interface hides from the client code the name of the class that implemented it. The
+encapsulation prevents exposing the object state.
+
+Overloading
+------------
+It is not possible to have two methods in the same interface or a class with the same
+signature. To have a different signature, the new method has to have either a new name
+or a different list of parameter types (and the sequence of the type does matter). Having two
+methods with the same name but a different list of parameter types constitutes overloading.
+
+Neither designation as default nor static plays any role in the overloading.
+A return type does not affect the overloading either.
+And it does not matter where the methods with the same name are declared.
+A private non-static method can be overloaded only by a non-static method of the
+same class.
+
+Important Note
+Overloading happens when methods have the same name but a different list
+of parameter types and belong to the same interface (or class) or to different
+interfaces (or classes), one of which is an ancestor to another. A private method
+can be overloaded only by a method in the same class.
+
+
+
+Overriding
+---------------
+In contrast to overloading, which happens with the static and non-static methods, method
+overriding happens only with non-static methods and only when they have exactly the
+same signature and belong to different interfaces (or classes), one of which is an ancestor
+to another.
+
+Important Note
+The overriding method resides in the child interface (or class), while the
+overridden method has the same signature and belongs to one of the ancestor
+interfaces (or classes). A private method cannot be overridden.
+
+Please note the usage of the @Override annotation. It tells the compiler that the
+programmer thinks that the annotated method overrides a method of one of the ancestor
+interfaces. This way, the compiler can make sure that the overriding does happen and
+generates an error if it doesn’t.
+
+
+Hiding
+---------
+The name hiding came from the behavior of static properties and methods of classes and
+interfaces. Each static property or method exists as a single copy in the JVM’s memory
+because they are associated with the interface or class, not with an object. An interface
+or class exists as a single copy. That is why we cannot say that the child’s static property
+or method overrides the parent’s static property or method with the same name. All static
+properties and methods are loaded into the memory only once when the class or interface
+is loaded and stay there, not being copied anywhere.
