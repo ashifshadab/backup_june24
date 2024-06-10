@@ -1,0 +1,14 @@
+Test
+
+Machine Learning Fundamentals | Introduction to Machine Learning, Part 1
+From the series: Introduction to Machine Learning
+
+Explore the fundamentals behind machine learning. Learn about two common Machine learning approaches:
+
+Unsupervised learning, which finds hidden patterns in input data
+Supervised learning, which trains a model on known input and output data so that it can predict future outputs
+You’ll also learn about three common techniques within these approaches:
+
+Clustering techniques put data into different groups based on shared characteristics in the data.
+Classification techniques predict discrete responses—like whether an email is genuine or spam.
+Regression techniques predict continuous responses, such as what temperature a thermostat should be set at or fluctuations in electricity demand.
